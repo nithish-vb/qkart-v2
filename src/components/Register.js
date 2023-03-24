@@ -7,11 +7,12 @@ import { config } from "../App";
 import Footer from "./Footer";
 import Header from "./Header";
 import "./Register.css";
+import { useHistory, Link } from "react-router-dom";
 
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
 
-  
+  const history=useHistory();
   const[formData,setformData]=useState({
     username:'',
     password:'',
@@ -23,8 +24,7 @@ const Register = () => {
  
 
 const handleInputChange = (e) => {
-  // https://reactjs.org/docs/forms.html#handling-multiple-inputs
-  const name = e.target.name;
+    const name = e.target.name;
   const value = e.target.value;
   setformData({...formData,[name]: value })
 };
@@ -62,6 +62,7 @@ let  url=`${config.endpoint}/auth/register`
 try{
     const res= await axios.post(url,{username,password})
     enqueueSnackbar("Registered Successsfully",{ variant: 'success' })
+    history.push("/login")
 }
 catch(err)
 {
@@ -167,9 +168,9 @@ catch(err)
            </Button>
           <p className="secondary-action">
             Already have an account?{" "}
-             <a className="link" href="#">
+             <Link className="link" to="/login">
               Login here
-             </a>
+             </Link>
           </p>
         </Stack>
       </Box>
@@ -179,3 +180,5 @@ catch(err)
 };
 
 export default Register;
+
+
