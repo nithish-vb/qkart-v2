@@ -54,9 +54,7 @@ const handleInputChange = (e) => {
    * }
    */
   const register = async (formData) => {
-    console.log(formData)
     const {username,password,confirmPassword} = formData;
-    console.log(formData)
     if (validateInput(formData)===true){    
 let  url=`${config.endpoint}/auth/register`
 try{
@@ -67,8 +65,7 @@ try{
 catch(err)
 {
   if (err.response?.status && err.response?.data && err.response.status>=400 && err.response.status<500){
-    console.log(err.response.data);
-        let msg= err.response.data.message
+    let msg= err.response.data.message
     enqueueSnackbar(msg,{ variant: 'error' })
   }
   else{
@@ -180,5 +177,3 @@ catch(err)
 };
 
 export default Register;
-
-

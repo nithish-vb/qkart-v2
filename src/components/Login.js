@@ -50,7 +50,7 @@ const Login = () => {
    *
    */
   const login = async (formData) => {
-    console.log(formData)
+    
     const {username,password} = formData;
     setisloading(true)
     if (validateInput(formData)===true){ 
@@ -123,9 +123,6 @@ const Login = () => {
    * -    `balance` field in localStorage can be used to store the balance amount in the user's wallet
    */
   const persistLogin = (token, username, balance) => {
-    console.log(username)
-    console.log(token)
-    console.log(balance)
     localStorage.setItem("username", username);
     localStorage.setItem("token", token);
     localStorage.setItem("balance", balance);
