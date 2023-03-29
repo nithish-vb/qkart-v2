@@ -172,14 +172,12 @@ const ItemQuantity = ({
       </IconButton>
       <Box padding="0.5rem" data-testid="item-qty">
         {value}
-
       </Box>
       <IconButton size="small" color="primary" onClick={handleAdd}>
         <AddOutlined />
       </IconButton>
     </Stack>
   );
-
 };
 
 /**

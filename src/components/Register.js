@@ -11,8 +11,7 @@ import { useHistory, Link } from "react-router-dom";
 
 const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
-
-  const history=useHistory();
+const history=useHistory();
   const[formData,setformData]=useState({
     username:'',
     password:'',
