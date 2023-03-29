@@ -13,7 +13,7 @@ import "./ProductCard.css";
 import {  Stack } from "@mui/material";
 
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product, handleAddToCart,products, items }) => {
   //console.log(product)
   
   return (
@@ -34,10 +34,11 @@ const ProductCard = ({ product, handleAddToCart }) => {
         ${product.cost}
         </Typography>
         <Rating name="stars" value={product.rating}  readOnly/>
-        <Button className="button" variant="contained" fullwidth startIcon={<AddShoppingCartOutlined />}>
-        ADD TO CART
-           </Button>
-           </Stack>
+        <CardActions className="card-actions">
+           <Button className="card-button" variant="contained" sx={{width:"100%"}} onClick={()=>handleAddToCart(localStorage.getItem("token"),items, products, product._id, 1, {preventDuplicate: true})}
+            startIcon={<AddShoppingCartOutlined />}> ADD TO CART </Button> 
+         </CardActions> 
+        </Stack>
 </CardContent>
     </Card>
   );
